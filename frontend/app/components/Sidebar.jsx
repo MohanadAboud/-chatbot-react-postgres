@@ -47,9 +47,18 @@ const ChatThreadItem  = ({href, title}) => {
   return (
 
             <li className="chat-thread-item">
+             <div className="chat-thread-item-content">
               <a className="chat-thread-link" href={href} >
                 {title}
               </a>
+                <button
+                className="delete-thread-btn"
+                aria-label={`Delete thread: ${title}`}
+                title="Delete this conversation"
+                type="button"
+              > &times; 
+              </button>
+              </div>
             </li>
 
   );
