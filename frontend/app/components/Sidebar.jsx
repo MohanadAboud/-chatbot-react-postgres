@@ -1,12 +1,13 @@
 import { useState } from "react";
+import { href, Link } from "react-router";
 
 const SidebarHeader = () => {
   return (
     <div className="sidebar-header">
       <h2 className="chatbot-title">Chatbot</h2>
-      <a href="/chat/new" className="new-chat-btn">
+      <Link to="/chat/new" className="new-chat-btn">
         + New
-      </a>
+      </Link>
     </div>
   );
 };
@@ -64,7 +65,7 @@ const SidebarFooter = () => {
 };
 
 const ChatThreadItem = ({ thread, onDeleteThread }) => {
-  const { id, href, title } = thread;
+  const { id, title } = thread;
 
   function handleDeleteClick(event) {
     event.stopPropagation();
@@ -76,9 +77,12 @@ const ChatThreadItem = ({ thread, onDeleteThread }) => {
   return (
     <li className="chat-thread-item">
       <div className="chat-thread-item-content">
-        <a className="chat-thread-link" href={href}>
+        <Link
+          to={href("/chat/:threadId", { threadId: id })}
+          className="chat-thread-link"
+        >
           {title}
-        </a>
+        </Link>
         <button
           onClick={handleDeleteClick}
           className="delete-thread-btn"

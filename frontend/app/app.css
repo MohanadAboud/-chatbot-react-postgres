@@ -334,3 +334,10 @@ body {
 .search-input::placeholder {
   color: #9ca3af;
 }
+
+.chat-thread-header {
+  text-align: center;
+  padding: 3rem 2rem;
+  text-align: center;
+  color: var(--text-muted);
+}
