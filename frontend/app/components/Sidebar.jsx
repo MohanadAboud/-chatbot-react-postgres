@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const SidebarHeader = () => {
   return (
     <div className="sidebar-header">
@@ -10,10 +12,29 @@ const SidebarHeader = () => {
 };
 
 const ChatThreadsList = ({ threads = [], onDeleteThread }) => {
+  const [search, setSearch] = useState("");
+
+  const handleSearchChange = (event) => {
+    setSearch(event.target.value);
+  };
+
+  const filteredThreads = threads.filter((thread) =>
+    thread.title.toLowerCase().includes(search.toLowerCase()),
+  );
+
   return (
     <nav className="chat-threads-list" aria-label="Chat threads">
+      <div className="search-container">
+        <input
+          type="text"
+          className="search-input"
+          placeholder="Search conversations..."
+          value={search}
+          onChange={handleSearchChange}
+        />
+      </div>
       <ul>
-        {threads.map((thread) => (
+        {filteredThreads.map((thread) => (
           <ChatThreadItem
             key={thread.id}
             thread={thread}

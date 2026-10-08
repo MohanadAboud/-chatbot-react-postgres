@@ -283,7 +283,9 @@ body {
   justify-content: center;
   margin-right: 0.5rem;
   opacity: 0;
-  transition: opacity 0.2s ease, background 0.1s ease;
+  transition:
+    opacity 0.2s ease,
+    background 0.1s ease;
 }
 
 /* Show delete button on thread item hover */
@@ -302,4 +304,33 @@ body {
   outline: 2px solid var(--border-focus);
   outline-offset: 1px;
   opacity: 1;
+}
+
+.search-container {
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.search-input {
+  width: 100%;
+  border: 1px solid var(--border-medium);
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  outline: none;
+  font-family: inherit;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.search-input:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 2px var(--shadow-focus);
+}
+
+.search-input::placeholder {
+  color: #9ca3af;
 }
