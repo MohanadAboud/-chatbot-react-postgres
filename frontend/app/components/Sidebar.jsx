@@ -1,5 +1,5 @@
 import React from "react";
-import { href, Link } from "react-router";
+import { href, NavLink, Link } from "react-router";
 
 /**
  * Sidebar Components
@@ -28,9 +28,9 @@ function SidebarHeader() {
   return (
     <div className="sidebar-header">
       <h2 className="chatbot-title">Chatbot</h2>
-      <Link to="/chat/new" className="new-chat-btn">
+      <NavLink to="/chat/new" className="new-chat-btn">
         + New
-      </Link>
+      </NavLink>
     </div>
   );
 }
@@ -62,12 +62,16 @@ function ChatThreadItem({ thread, onDeleteThread }) {
   return (
     <li className="chat-thread-item">
       <div className="chat-thread-item-content">
-        <Link
+        <NavLink
           to={href("/chat/:threadId", { threadId: id })}
-          className="chat-thread-link"
+          className={({ isActive }) =>
+            isActive
+              ? "chat-thread-link chat-thread-link-active"
+              : "chat-thread-link"
+          }
         >
           {title}
-        </Link>
+        </NavLink>
         <button
           className="delete-thread-btn"
           aria-label={`Delete thread: ${title}`}

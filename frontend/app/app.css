@@ -162,7 +162,10 @@ body {
   white-space: nowrap;
 }
 
-/* Delete button - hidden by default, shown on hover */
+.chat-thread-link-active {
+  font-weight: bold;
+}
+
 .delete-thread-btn {
   background: transparent;
   border: none;
