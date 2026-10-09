@@ -76,4 +76,3 @@ export function ErrorBoundary({ error }) {
     </main>
   );
 }
-
